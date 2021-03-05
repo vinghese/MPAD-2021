@@ -10,11 +10,18 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-//        Log.e("ERROR","**********BRoadcast Received****************");
+        String boad = intent.getStringExtra("broad");
 
-        intent.getAction();
+//        Toast.makeText(context,intent.getAction()+" Received", Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(context,intent.getAction()+" Received", Toast.LENGTH_SHORT).show();
+      //  if(intent.getAction().contains("AIRPLANE"))
+
+        if(boad == null)
+        {
+            Toast.makeText(context,"Airplane mode changed", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(context,boad, Toast.LENGTH_SHORT).show();
 
     }
 }

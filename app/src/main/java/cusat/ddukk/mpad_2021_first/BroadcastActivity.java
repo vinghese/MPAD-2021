@@ -19,26 +19,33 @@ public class BroadcastActivity extends AppCompatActivity {
 
         Button btnSend = (Button)findViewById(R.id.btnBroadcast);
 
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(getPackageName() + ".CLASS_ENDS");
+
+        // Toast.makeText(getApplicationContext(),getPackageName()+".CLASS_ENDS",Toast.LENGTH_SHORT).show();
+
+        IntentFilter filter1 = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+
+        MyReceiver myReceiver = new MyReceiver();
+        registerReceiver(myReceiver, filter);
+
+        registerReceiver(myReceiver, filter1);
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                IntentFilter filter = new IntentFilter();
-                filter.addAction(getPackageName() + ".CLASS_ENDS");
-
-               // Toast.makeText(getApplicationContext(),getPackageName()+".CLASS_ENDS",Toast.LENGTH_SHORT).show();
-
-                IntentFilter filter1 = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-
-                MyReceiver myReceiver = new MyReceiver();
-                registerReceiver(myReceiver, filter);
-
-                registerReceiver(myReceiver, filter1);
-
                 Intent send = new Intent();
                 send.setAction("cusat.ddukk.mpad_2021_first.CLASS_ENDS");
+
+                Bundle bundle = new Bundle();
+
+
+                send.putExtra("bundle",bundle);
+                send.putExtra("broad","THis is a sample intent message");
+
                 sendBroadcast(send);
-                Log.e("ERROR","**********BRoadcast Toast****************");
+//                Log.e("ERROR","**********BRoadcast Toast****************");
 
             }
         });
