@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cusat.ddukk.mpad_2021_first">
 
-
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -12,16 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MPad2021First">
-
-        <receiver android:name="cusat.ddukk.mpad_2021_first.MyReceiver" android:exported="true">
+        <activity android:name=".RecyclerActivity">
             <intent-filter>
-                <action android:name="cusat.ddukk.mpad_2021_first.CLASS_ENDS"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.AIRPLANE_MODE" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        </receiver>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
+        <service android:name=".MPlayerService" /> <!-- The receiver in manifest is not working add it via code -->
+        <!-- <receiver android:name="cusat.ddukk.mpad_2021_first.MyReceiver" android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="cusat.ddukk.mpad_2021_first.CLASS_ENDS"/> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
+        <!-- <action android:name="android.intent.action.AIRPLANE_MODE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
         <activity android:name=".BroadcastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,8 +84,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-
-
     </application>
 
 </manifest>
