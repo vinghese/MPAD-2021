@@ -11,6 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MPad2021First">
+        <activity android:name=".RecyclerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".MPlayerService"/>
-        <!-- The receiver in manifest is not working add it via code -->
+
+        <service android:name=".MPlayerService" /> <!-- The receiver in manifest is not working add it via code -->
         <!-- <receiver android:name="cusat.ddukk.mpad_2021_first.MyReceiver" android:exported="true"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="cusat.ddukk.mpad_2021_first.CLASS_ENDS"/> -->
